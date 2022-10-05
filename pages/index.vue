@@ -4,37 +4,34 @@
       <h1>Get The Latest Tech News</h1>
     </section>
     <section class="features-posts">
-      <nuxt-link :to="'/posts/' + 1" class="post-preview">
-        <article>
-          <div
-            class="post-thumbnail"
-            style="
-              background-image: url('https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg?w=2000');
-            "
-          ></div>
-          <div class="post-content">
-            <h1>Post Title</h1>
-            <p>Preview Text</p>
-          </div>
-        </article>
-      </nuxt-link>
-      <nuxt-link :to="'/posts/' + 2" class="post-preview">
-        <article>
-          <div
-            class="post-thumbnail"
-            style="
-              background-image: url('https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg?w=2000');
-            "
-          ></div>
-          <div class="post-content">
-            <h1>Post Title 2</h1>
-            <p>Preview Text 2</p>
-          </div>
-        </article>
-      </nuxt-link>
+      <PostPreview
+        id="1"
+        thumbnail="https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg?w=2000"
+        title="Hello There!"
+        previewText="This is my first post!"
+      />
+      <PostPreview
+        id="2"
+        thumbnail="https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg?w=2000"
+        title="Hello There! for the second time"
+        previewText="This is my second post!"
+      />
+      <PostPreview
+        id="3"
+        thumbnail="https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg?w=2000"
+        title="Hi! for the third time "
+        previewText="This is my third post!"
+      />
     </section>
   </div>
 </template>
+
+<script>
+import PostPreview from "~/components/Posts/PostPreview.vue";
+export default {
+  components: { PostPreview },
+};
+</script>
 
 <style scoped>
 .intro {
@@ -74,41 +71,5 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-}
-
-.post-preview {
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 2px #ccc;
-  background-color: white;
-  width: 90%;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-
-@media (min-width: 850px) {
-  .post-preview {
-    width: 400px;
-    margin: 10px;
-  }
-}
-
-.post-thumbnail {
-  width: 100%;
-  height: 200px;
-  background-position: center;
-  background-size: cover;
-}
-
-.post-content {
-  padding: 10px;
-  text-align: center;
-}
-
-a:hover .post-content,
-a:active .post-content {
-  background-color: #ccc;
 }
 </style>
