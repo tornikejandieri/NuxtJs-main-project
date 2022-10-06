@@ -3,7 +3,7 @@
     <section class="intro">
       <h1>Get The Latest Tech News</h1>
     </section>
-    <PostList />
+    <PostList :posts="loadedPosts" />
   </div>
 </template>
 
@@ -12,6 +12,26 @@ import PostList from "~/components/Posts/PostList.vue";
 
 export default {
   components: { PostList },
+  data() {
+    return {
+      loadedPosts: [
+        {
+          id: "1",
+          title: "First Post",
+          previewText: "This is our first post",
+          thumbnail:
+            "https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg?w=2000",
+        },
+        {
+          id: "2",
+          title: "Second Post",
+          previewText: "This is our second post",
+          thumbnail:
+            "https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg?w=2000",
+        },
+      ],
+    };
+  },
 };
 </script>
 
