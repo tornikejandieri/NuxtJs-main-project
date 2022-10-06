@@ -12,31 +12,38 @@ import PostList from "~/components/Posts/PostList.vue";
 
 export default {
   components: { PostList },
-  asyncData(context, callback) {
-    setTimeout(() => {
-      callback(
-        null,
-        {
-          loadedPosts: [
-            {
-              id: "1",
-              title: "First Post",
-              previewText: "This is our first post",
-              thumbnail:
-                "https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg?w=2000",
-            },
-            {
-              id: "2",
-              title: "Second Post",
-              previewText: "This is our second post",
-              thumbnail:
-                "https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg?w=2000",
-            },
-          ],
-        },
-        1500
-      );
-    });
+  asyncData(context) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(
+          {
+            loadedPosts: [
+              {
+                id: "1",
+                title: "First Post",
+                previewText: "This is our first post",
+                thumbnail:
+                  "https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg?w=2000",
+              },
+              {
+                id: "2",
+                title: "Second Post",
+                previewText: "This is our second post",
+                thumbnail:
+                  "https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg?w=2000",
+              },
+            ],
+          },
+          1500
+        );
+      });
+    })
+      .then((data) => {
+        return data;
+      })
+      .catch((e) => {
+        context.error(new Error());
+      });
   },
   // data() {
   //   return {
