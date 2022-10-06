@@ -1,12 +1,12 @@
 <template>
   <div class="single-post-page">
     <section class="post">
-      <h1 class="post-title">Title of the post</h1>
+      <h1 class="post-title">{{ loadedPost.title }}</h1>
       <div class="post-details">
-        <div class="post-details">Last Updated On XXX</div>
-        <div class="post-details">Written By NAME</div>
+        <div class="post-details">{{ loadedPost.updatedDate }}</div>
+        <div class="post-details">{{ loadedPost.author }}</div>
       </div>
-      <p>Content of the post</p>
+      <p>{{ loadedPost.content }}</p>
     </section>
     <section class="post-feedback">
       <p>
@@ -18,6 +18,27 @@
     </section>
   </div>
 </template>
+
+<script>
+export default {
+  asyncData(context, callback) {
+    setTimeout(() => {
+      callback(null, {
+        loadedPost: {
+          id: "1",
+          title: "First Post (ID: " + context.params.id + ")",
+          previewText: "This is our first post",
+          author: "Tornike",
+          updatedDate: new Date(),
+          content: "Some dummy text which is def not the preview text though",
+          thumbnail:
+            "https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg?w=2000",
+        },
+      });
+    }, 1000);
+  },
+};
+</script>
 
 <style scoped>
 .single-post-page {
