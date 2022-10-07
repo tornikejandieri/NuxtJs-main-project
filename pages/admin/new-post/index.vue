@@ -7,22 +7,21 @@
 </template>
 
 <script>
-import AdminPostForm from "~/components/Admin/AdminPostForm.vue";
 import axios from "axios";
+import AdminPostForm from "@/components/Admin/AdminPostForm";
+
 export default {
-  components: { AdminPostForm },
   layout: "admin",
+  components: {
+    AdminPostForm
+  },
   methods: {
     onSubmitted(postData) {
-      axios
-        .post(
-          "https://nuxt-blog-ea935-default-rtdb.europe-west1.firebasedatabase.app/posts.json",
-          { ...postData, updatedDate: new Date() }
-        )
-        .then((result) => console.log(result))
-        .cath((e) => console.log(e));
-    },
-  },
+      this.$store.dispatch("addPost", postData).then(() => {
+        this.$router.push("/admin");
+      });
+    }
+  }
 };
 </script>
 

@@ -28,7 +28,7 @@ export default {
   methods: {
     onSubmitted(editedPost) {
       axios
-        .put(
+        .post(
           "https://nuxt-blog-ea935-default-rtdb.europe-west1.firebasedatabase.app/posts/-NDhz3wjaZp-VgvGRS2w" +
             this.$route.params.postId +
             ".json",
