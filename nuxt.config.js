@@ -44,4 +44,15 @@ export default {
       process.env.BASE_URL ||
       "https://nuxt-blog-ea935-default-rtdb.europe-west1.firebasedatabase.app/posts/-NDhz3wjaZp-VgvGRS2w",
   },
+  generate: {},
+  rootDir: "/",
+  // router: {
+  //   base: '/my-app/'
+  //   extendRoutes(routes, resolve) {
+  //     routes.push(
+  //       path: '*',
+  //       component: resolve(__dirname, 'pages/index.vue')
+  //     )
+  //   }
+  // }
 };
