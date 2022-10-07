@@ -21,7 +21,9 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: [
+    // '~assets/styles/main.css'
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -37,4 +39,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+  env: {
+    baseUrl:
+      process.env.BASE_URL ||
+      "https://nuxt-blog-ea935-default-rtdb.europe-west1.firebasedatabase.app/posts/-NDhz3wjaZp-VgvGRS2w",
+  },
 };
