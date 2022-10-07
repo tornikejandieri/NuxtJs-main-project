@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   asyncData(context, callback) {
     setTimeout(() => {

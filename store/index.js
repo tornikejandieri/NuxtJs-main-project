@@ -1,5 +1,5 @@
 import Vuex from "vuex";
-import axios from "axios";
+// import axios from "axios";
 
 const createStore = () => {
   return new Vuex.Store({
@@ -13,10 +13,10 @@ const createStore = () => {
     },
     actions: {
       nuxtServerInit(vuexContext, context) {
-        return axios
-          .get(
-            "https://nuxt-blog-ea935-default-rtdb.europe-west1.firebasedatabase.app/posts.json"
-          )
+        return fetch(
+          "https://nuxt-blog-ea935-default-rtdb.europe-west1.firebasedatabase.app/.json"
+        )
+          .then((res) => res.json())
           .then((res) => {
             const postsArray = [];
             for (const key in res.data) {
