@@ -15,7 +15,11 @@
 <script>
 import PostList from "~/components/Posts/PostList.vue";
 import AppButton from "~/components/UI/AppButton.vue";
-export default { components: { PostList, AppButton }, layout: "admin" };
+export default {
+  components: { PostList, AppButton },
+  layout: "admin",
+  middleware: "auth",
+};
 </script>
 
 <style scoped>
