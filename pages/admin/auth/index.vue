@@ -48,7 +48,12 @@ export default {
       }).then(result => {console.log(result)})
       .catch(e => {console.log(e)})
 
-
+      this.$store.dispatch('authenticateUser', {
+        isLogin: this.isLogin,
+        email: this.email,
+        password: this.password
+      }
+      ).then(() => {this.$router.push('/admin')})
     }
   }
 }
