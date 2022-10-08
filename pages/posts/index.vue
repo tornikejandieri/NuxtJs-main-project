@@ -8,7 +8,7 @@
 import PostList from "~/components/Posts/PostList.vue";
 export default {
   components: { PostList },
-
+  middleware: "log",
   computed: {
     loadedPosts() {
       return this.$store.getters.loadedPosts;
